@@ -22,5 +22,19 @@ public class ServerHostEndPoint {
     String msg = "I am running on server "+host+" Version 1.0 \n";
     return Response.ok(msg).build();
   } 
+  @GET
+  @Produces("text/plain")
+  @Path("/{name}")
+  public Response doGet(@PathPam("name") String name) {
+    String host = "";
+    try {
+      host = InetAddress.getLocalHost().getHostName();
+    }
+    catch (Exception e) {
+       e.printStackTrace();
+    }
+    String msg = "I am running on server "+host+" Version 1.0 \n" + name;
+    return Response.ok(msg).build();
+  }
 }
 
