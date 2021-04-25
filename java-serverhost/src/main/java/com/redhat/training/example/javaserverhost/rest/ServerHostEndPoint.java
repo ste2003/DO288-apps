@@ -28,7 +28,7 @@ public class ServerHostEndPoint {
   @Produces("text/plain")
   @Consumes("text/plain")
   @Path("/{name}")
-  public Response doGet1(@PathPam("name") String name) {
+  public Response doGet1(@PathParam("name") String name) {
     String host = "";
     try {
       host = InetAddress.getLocalHost().getHostName();
